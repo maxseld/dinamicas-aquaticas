@@ -19,15 +19,14 @@ const App: React.FC = () => {
   const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    const name = formData.get('name') as string || 'Instrutor';
-    const email = formData.get('email') as string || 'instrutor@swimflow.com';
+    const name = (formData.get('name') as string) || 'Instrutor';
+    const email = (formData.get('email') as string) || 'instrutor@swimflow.com';
     
     setUser({ name, email });
     setView('dashboard');
   };
 
   const handleWizardComplete = (criteria: FilterCriteria) => {
-    // Generate Lesson Logic
     const warmup = getRandomActivity('warmup', criteria.ageGroup, criteria.level);
     const main = getRandomActivity('main', criteria.ageGroup, criteria.level);
     const fun = getRandomActivity('fun', criteria.ageGroup, criteria.level);
@@ -51,104 +50,87 @@ const App: React.FC = () => {
     setView('safety');
   };
 
-  const handleSafetyComplete = () => {
-    setView('lesson');
-  };
-
-  const handleLessonFinish = () => {
-    setView('feedback');
-  };
-
-  const handleFeedbackSubmit = () => {
-    // Here we would save to DB
-    setCurrentLesson(null);
-    setView('dashboard');
-  };
-
-  // Login View
-  if (view === 'login') {
-    return (
-      <div className="min-h-screen bg-dark flex flex-col items-center justify-center p-6">
-        <div className="w-full max-w-sm space-y-8">
-          <div className="text-center">
-            <div className="bg-primary/20 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
-              <Waves className="w-12 h-12 text-primary" />
+  const renderView = () => {
+    switch (view) {
+      case 'login':
+        return (
+          <div className="min-h-screen bg-dark flex flex-col items-center justify-center p-6 animate-in fade-in duration-500">
+            <div className="w-full max-w-sm space-y-8">
+              <div className="text-center">
+                <div className="bg-primary/20 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                  <Waves className="w-12 h-12 text-primary" />
+                </div>
+                <h1 className="text-4xl font-black text-white tracking-tight">SwimFlow</h1>
+                <p className="text-slate-400 mt-2">O aliado do instrutor de natação.</p>
+              </div>
+              
+              <form onSubmit={handleLogin} className="space-y-4 bg-card p-6 rounded-2xl border border-slate-700 shadow-xl">
+                <div>
+                  <label className="block text-slate-400 text-sm font-bold mb-2">Nome</label>
+                  <input 
+                    name="name"
+                    type="text" 
+                    placeholder="Seu nome"
+                    required
+                    className="w-full bg-slate-900 border border-slate-600 rounded-xl p-4 text-white focus:border-primary focus:outline-none transition-colors"
+                  />
+                </div>
+                <div>
+                  <label className="block text-slate-400 text-sm font-bold mb-2">E-mail de compra</label>
+                  <input 
+                    name="email"
+                    type="email" 
+                    placeholder="exemplo@email.com"
+                    required
+                    className="w-full bg-slate-900 border border-slate-600 rounded-xl p-4 text-white focus:border-primary focus:outline-none transition-colors"
+                  />
+                </div>
+                <Button fullWidth type="submit" className="mt-4">Entrar</Button>
+              </form>
             </div>
-            <h1 className="text-4xl font-black text-white tracking-tight">SwimFlow</h1>
-            <p className="text-slate-400 mt-2">O aliado do instrutor de natação.</p>
           </div>
-          
-          <form onSubmit={handleLogin} className="space-y-4 bg-card p-6 rounded-2xl border border-slate-700 shadow-xl">
-            <div>
-              <label className="block text-slate-400 text-sm font-bold mb-2">Nome</label>
-              <input 
-                name="name"
-                type="text" 
-                placeholder="Seu nome"
-                required
-                className="w-full bg-slate-900 border border-slate-600 rounded-xl p-4 text-white focus:border-primary focus:outline-none transition-colors"
-              />
-            </div>
-            <div>
-              <label className="block text-slate-400 text-sm font-bold mb-2">E-mail de compra</label>
-              <input 
-                name="email"
-                type="email" 
-                placeholder="exemplo@email.com"
-                required
-                className="w-full bg-slate-900 border border-slate-600 rounded-xl p-4 text-white focus:border-primary focus:outline-none transition-colors"
-              />
-            </div>
-            <Button fullWidth type="submit" className="mt-4">Entrar</Button>
-          </form>
-        </div>
-      </div>
-    );
-  }
+        );
+      case 'dashboard':
+        return user ? (
+          <Dashboard 
+            user={user} 
+            onStartPlan={() => setView('wizard')} 
+            onLogout={() => setView('login')} 
+          />
+        ) : null;
+      case 'wizard':
+        return (
+          <LessonWizard 
+            onComplete={handleWizardComplete} 
+            onCancel={() => setView('dashboard')} 
+          />
+        );
+      case 'safety':
+        return (
+          <SafetyCheck 
+            onComplete={() => setView('lesson')} 
+            onCancel={() => setView('dashboard')} 
+          />
+        );
+      case 'lesson':
+        return currentLesson ? (
+          <ActiveLesson 
+            lesson={currentLesson} 
+            onFinish={() => setView('feedback')}
+            onUpdateLesson={setCurrentLesson}
+          />
+        ) : null;
+      case 'feedback':
+        return <Feedback onSubmit={() => {
+          setCurrentLesson(null);
+          setView('dashboard');
+        }} />;
+      default:
+        return null;
+    }
+  };
 
-  if (view === 'dashboard' && user) {
-    return (
-      <Dashboard 
-        user={user} 
-        onStartPlan={() => setView('wizard')} 
-        onLogout={() => setView('login')} 
-      />
-    );
-  }
-
-  if (view === 'wizard') {
-    return (
-      <LessonWizard 
-        onComplete={handleWizardComplete} 
-        onCancel={() => setView('dashboard')} 
-      />
-    );
-  }
-
-  if (view === 'safety') {
-    return (
-      <SafetyCheck 
-        onComplete={handleSafetyComplete} 
-        onCancel={() => setView('dashboard')} 
-      />
-    );
-  }
-
-  if (view === 'lesson' && currentLesson) {
-    return (
-      <ActiveLesson 
-        lesson={currentLesson} 
-        onFinish={handleLessonFinish}
-        onUpdateLesson={setCurrentLesson}
-      />
-    );
-  }
-
-  if (view === 'feedback') {
-    return <Feedback onSubmit={handleFeedbackSubmit} />;
-  }
-
-  return <div>Erro de Estado</div>;
+  return <div className="min-h-screen bg-dark">{renderView()}</div>;
 };
 
 export default App;
