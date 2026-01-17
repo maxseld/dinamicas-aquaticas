@@ -112,7 +112,307 @@ export const ALL_ACTIVITIES: Activity[] = [
     description: 'O instrutor (ou um aluno líder) faz um movimento embaixo d\'água (ex: dar uma cambalhota, tocar o pé, abrir os braços). Os outros mergulham logo em seguida para repetir exatamente igual.',
     tip: 'Ótimo para avaliar a consciência corporal subaquática dos alunos.'
   },
-  // BLOCO 2: Respiração, Equilíbrio e Coordenação
+  // NOVAS ATIVIDADES: Infantil II | Adaptação (ID 81-89)
+  {
+    id: '81',
+    title: 'Corrida dos Gigantes',
+    type: 'warmup',
+    age: ['6-10'],
+    level: ['adaptation'],
+    durationMin: 10,
+    materials: ['Área rasa da piscina'],
+    description: 'Os alunos atravessam a piscina andando rápido na ponta dos pés, fazendo círculos gigantes com os braços para vencer a resistência da água.',
+    tip: 'Se a criança tiver medo, permita que ela segure na borda com uma das mãos.'
+  },
+  {
+    id: '82',
+    title: 'O Maestro das Ondas',
+    type: 'warmup',
+    age: ['6-10'],
+    level: ['adaptation'],
+    durationMin: 10,
+    materials: ['Nenhum'],
+    description: 'Em círculo, o instrutor sobe as mãos e todos batem na superfície criando "chuvinha". Quando desce, todos batem os pés suavemente embaixo d\'água.',
+    tip: 'Observe quem tem aversão a água no rosto durante a "chuvinha".'
+  },
+  {
+    id: '83',
+    title: 'Luta de Espuma na Borda',
+    type: 'warmup',
+    age: ['6-10'],
+    level: ['adaptation'],
+    durationMin: 10,
+    materials: ['Borda'],
+    description: 'Segurando na borda, os alunos batem pernas o mais forte possível para criar uma "parede de espuma" que esconda o colega ao lado.',
+    tip: 'Use a competitividade: "Quem faz a espuma mais alta?".'
+  },
+  {
+    id: '84',
+    title: 'Caça ao Tesouro Progressiva',
+    type: 'main',
+    age: ['6-10'],
+    level: ['adaptation'],
+    durationMin: 20,
+    materials: ['Objetos flutuantes e de fundo'],
+    description: 'Primeiro pegam objetos que boiam. Depois, objetos no fundo em partes rasas, incentivando o mergulho gradual do rosto e tronco.',
+    tip: 'Use objetos como moedas de plástico ou bonecos de ação para motivar.'
+  },
+  {
+    id: '85',
+    title: 'O Foguete Hidrodinâmico',
+    type: 'main',
+    age: ['6-10'],
+    level: ['adaptation'],
+    durationMin: 20,
+    materials: ['Pranchas ou espaguetes'],
+    description: 'A criança segura o apoio, dá impulso na parede com o rosto na água fazendo bolhas e tenta deslizar o máximo possível.',
+    tip: 'O foco é a confiança de que a água sustenta o corpo submerso.'
+  },
+  {
+    id: '86',
+    title: 'Circuito de Obstáculos Subaquáticos',
+    type: 'main',
+    age: ['6-10'],
+    level: ['adaptation'],
+    durationMin: 20,
+    materials: ['Arcos, espaguetes'],
+    description: 'Circuito: passar por dentro de um arco (mergulhando), por baixo de um espaguete e pegar uma argola no chão.',
+    tip: 'O desafio de "completar a missão" ajuda a superar o medo.'
+  },
+  {
+    id: '87',
+    title: 'Basquete de Esponja',
+    type: 'fun',
+    age: ['6-10'],
+    level: ['adaptation'],
+    durationMin: 10,
+    materials: ['Esponjas grandes, baldes'],
+    description: 'Times tentam arremessar esponjas molhadas no balde. O movimento de saltar e arremessar ajuda na noção de profundidade e descontração.',
+    tip: 'Excelente para terminar a aula em clima de jogo e esquecer o medo.'
+  },
+  {
+    id: '88',
+    title: 'O Repórter Subaquático',
+    type: 'fun',
+    age: ['6-10'],
+    level: ['adaptation'],
+    durationMin: 10,
+    materials: ['Objeto para microfone'],
+    description: 'O instrutor mergulha o "microfone" e a criança mergulha a boca para "falar" seu nome fazendo bolhas embaixo d\'água.',
+    tip: 'Trabalha a expiração forçada, essencial para evitar água no nariz.'
+  },
+  {
+    id: '89',
+    title: 'Corrida do Motor de Popa',
+    type: 'fun',
+    age: ['6-10'],
+    level: ['adaptation'],
+    durationMin: 10,
+    materials: ['Espaguetes'],
+    description: 'Cada criança monta em um espaguete e atravessa a piscina o mais rápido possível fugindo do "tubarão" (instrutor).',
+    tip: 'Gera sensação de autonomia e deslocamento independente.'
+  },
+  // NOVAS ATIVIDADES: Infantil I | Aperfeiçoamento (ID 90-98)
+  {
+    id: '90',
+    title: 'O Jet Ski Veloz',
+    type: 'warmup',
+    age: ['3-5'],
+    level: ['improvement'],
+    durationMin: 10,
+    materials: ['Pranchas pequenas'],
+    description: 'Segurando a prancha com braços esticados, a criança faz a pernada mais forte possível sem dobrar excessivamente os joelhos.',
+    tip: 'Se o quadril afundar, peça para colocar o rosto na água.'
+  },
+  {
+    id: '91',
+    title: 'Moinho de Vento com Palmas',
+    type: 'warmup',
+    age: ['3-5'],
+    level: ['improvement'],
+    durationMin: 10,
+    materials: ['Nenhum'],
+    description: 'Movimento de braçada de Crawl tocando a coxa e dando uma "palmada suave" na água à frente da cabeça no final da fase aérea.',
+    tip: 'Evita braçadas curtas ou "remadinhas de cachorro".'
+  },
+  {
+    id: '92',
+    title: 'Alarme do Despertador',
+    type: 'warmup',
+    age: ['3-5'],
+    level: ['improvement'],
+    durationMin: 10,
+    materials: ['Nenhum'],
+    description: 'Nadam livremente. Ao som de "Trimmm!", todos fazem uma submersão rápida e voltam batendo pernas explosivamente até a borda.',
+    tip: 'Trabalha a transição para o esforço explosivo.'
+  },
+  {
+    id: '93',
+    title: 'A Orelha que Ouve a Água',
+    type: 'main',
+    age: ['3-5'],
+    level: ['improvement'],
+    durationMin: 20,
+    materials: ['Pranchas'],
+    description: 'Nadando com prancha, faz a braçada e encosta a orelha no braço esticado para "ouvir o segredo da água" e respirar de lado.',
+    tip: 'Use o "segredo" para que não levantem a cabeça inteira.'
+  },
+  {
+    id: '94',
+    title: 'O Equilibrista de Moedas',
+    type: 'main',
+    age: ['3-5'],
+    level: ['improvement'],
+    durationMin: 20,
+    materials: ['Moedas de plástico ou brinquedos pequenos'],
+    description: 'Flutuação de costas com um objeto na testa. Deve nadar apenas com pernada sem deixar o objeto cair.',
+    tip: 'Se cair, está mexendo muito a cabeça ou olhando para os pés.'
+  },
+  {
+    id: '95',
+    title: 'O Mergulho da Sereia / Tritão',
+    type: 'main',
+    age: ['3-5'],
+    level: ['improvement'],
+    durationMin: 20,
+    materials: ['Nenhum'],
+    description: 'Em posição de flecha, desloca-se fazendo ondas com o corpo, iniciando na cabeça e terminando nos pés (ondulação).',
+    tip: 'Peça para "empurrar o peito para o fundo" para iniciar o movimento.'
+  },
+  {
+    id: '96',
+    title: 'Foto Subaquática de Modelo',
+    type: 'fun',
+    age: ['3-5'],
+    level: ['improvement'],
+    durationMin: 10,
+    materials: ['Nenhum'],
+    description: 'O instrutor faz a "câmera" com as mãos. A criança mergulha e faz uma pose técnica (flecha ou nado) para a "foto".',
+    tip: 'Reforça posições técnicas de forma lúdica.'
+  },
+  {
+    id: '97',
+    title: 'Limpeza do Oceano',
+    type: 'fun',
+    age: ['3-5'],
+    level: ['improvement'],
+    durationMin: 10,
+    materials: ['Objetos pequenos espalhados'],
+    description: 'Recolher o máximo de objetos em 1 minuto, nadando Crawl ou Costas com técnica correta entre as buscas.',
+    tip: 'Estimula a técnica mesmo sob foco em outra tarefa (o jogo).'
+  },
+  {
+    id: '98',
+    title: 'O Barco a Remo Humano',
+    type: 'fun',
+    age: ['3-5'],
+    level: ['improvement'],
+    durationMin: 10,
+    materials: ['Nenhum'],
+    description: 'Em duplas, um segura os pés do outro que está deitado. Quem está na frente usa apenas braços de Crawl para puxar a dupla.',
+    tip: 'Trabalha a percepção de arrasto e força de tração.'
+  },
+  // NOVAS ATIVIDADES: Bebês | Aperfeiçoamento (ID 99-107)
+  {
+    id: '99',
+    title: 'O Pulo do Sapo Saltitante',
+    type: 'warmup',
+    age: ['baby'],
+    level: ['improvement'],
+    durationMin: 10,
+    materials: ['Borda ou degrau raso'],
+    description: 'Bebê em pé na borda, segurado pelas mãos. Ao sinal, deve fletir joelhos e dar um impulso para saltar para a água.',
+    tip: 'Fortalece membros inferiores e prepara para saltos maiores.'
+  },
+  {
+    id: '100',
+    title: 'Caça às Bolhas de Sabão',
+    type: 'warmup',
+    age: ['baby'],
+    level: ['improvement'],
+    durationMin: 10,
+    materials: ['Bolhas de sabão'],
+    description: 'Instrutor sopra bolhas e o pai desloca o bebê para que ele tente estourar com as mãos, alternando os braços.',
+    tip: 'Promove braçadas involuntárias e coordenação óculo-manual.'
+  },
+  {
+    id: '101',
+    title: 'Comboio de Pés na Prancha',
+    type: 'warmup',
+    age: ['baby'],
+    level: ['improvement'],
+    durationMin: 10,
+    materials: ['Pranchas'],
+    description: 'Bebê de barriga na prancha apoiado pelo pai. Deve bater os pés continuamente para fazer o "comboio" andar.',
+    tip: 'Cante músicas rítmicas para manter a cadência da pernada.'
+  },
+  {
+    id: '102',
+    title: 'O Mergulho do Golfinho Solitário',
+    type: 'main',
+    age: ['baby'],
+    level: ['improvement'],
+    durationMin: 20,
+    materials: ['Nenhum'],
+    description: 'Instrutor solta o bebê a 1 metro do pai. O bebê mergulha e nada sozinho até o acolhimento nos braços do pai.',
+    tip: 'Aumente a distância de 10 em 10cm conforme a confiança.'
+  },
+  {
+    id: '103',
+    title: 'Escalada no Iceberg',
+    type: 'main',
+    age: ['baby'],
+    level: ['improvement'],
+    durationMin: 20,
+    materials: ['Tapete flutuante'],
+    description: 'Bebê nada até o tapete e tenta subir sozinho (mínimo auxílio) para ficar sentado em cima.',
+    tip: 'Simula a subida para a borda, crucial para auto-salvamento.'
+  },
+  {
+    id: '104',
+    title: 'O Soprador de Tesouros',
+    type: 'main',
+    age: ['baby'],
+    level: ['improvement'],
+    durationMin: 20,
+    materials: ['Objetos de fundo raso'],
+    description: 'Mergulha para pegar objeto. Antes de subir, deve soltar bolhas pelo nariz ou boca ainda embaixo d\'água.',
+    tip: 'Previne aspiração de água ao emergir para respirar.'
+  },
+  {
+    id: '105',
+    title: 'Baloiço nas Ondas Calmas',
+    type: 'fun',
+    age: ['baby'],
+    level: ['improvement'],
+    durationMin: 10,
+    materials: ['Nenhum'],
+    description: 'Deitado de costas no colo do pai, orelhas submersas, olhando o teto. Pai faz balanço lateral lento para relaxar.',
+    tip: 'O contato pele a pele acalma o sistema nervoso após o esforço.'
+  },
+  {
+    id: '106',
+    title: 'O Resgate dos Patinhos',
+    type: 'fun',
+    age: ['baby'],
+    level: ['improvement'],
+    durationMin: 10,
+    materials: ['Patinhos, cesta flutuante'],
+    description: 'Nadar até cada patinho, pegá-lo e guardar na cesta. "Quando o cesto encher, a aula acabou".',
+    tip: 'Ajuda a criar rituais de início e fim de aula.'
+  },
+  {
+    id: '107',
+    title: 'Despedida do Peixinho',
+    type: 'fun',
+    age: ['baby'],
+    level: ['improvement'],
+    durationMin: 10,
+    materials: ['Nenhum'],
+    description: 'Círculo final. Bebês dão "tchau" para a água com mãos e pés e um abraço final no pai/mãe.',
+    tip: 'Reforço positivo: o bebê sai sentindo-se vitorioso.'
+  },
+  // BLOCO 2: Respiração, Equilíbrio e Coordenação... (Continuação dos IDs originais)
   {
     id: '11',
     title: 'O Chafariz do Elefante',
@@ -223,7 +523,7 @@ export const ALL_ACTIVITIES: Activity[] = [
     description: 'Coloque a bolinha na água na frente da criança. Ela deve soprar a bolinha (sem tocar nela) para que ela se desloque até um ponto determinado.',
     tip: 'Peça para soprarem "devagar e constante" para a bolinha não fugir do controle.'
   },
-  // BLOCO 3: Sobrevivência e Autonomia Aquática
+  // RESTANTE DAS ATIVIDADES ORIGINAIS (21-80)...
   {
     id: '21',
     title: 'O Abraço do Coala',
@@ -334,7 +634,6 @@ export const ALL_ACTIVITIES: Activity[] = [
     description: 'O aluno salta em pé na água, mas assim que submergir, deve girar 180 graus debaixo d\'água e voltar para a borda de onde saltou.',
     tip: 'Treina a reação imediata de retorno após uma queda, evitando que a criança tente nadar para o meio.'
   },
-  // BLOCO 4: Técnica de Nado
   {
     id: '31',
     title: 'O Moinho de Vento Mágico',
@@ -445,7 +744,6 @@ export const ALL_ACTIVITIES: Activity[] = [
     description: 'O aluno começa a nadar de barriga para baixo e, a cada três braçadas, deve rodar o corpo totalmente até ficar de costas, continuando a nadar.',
     tip: 'Fundamental para o desenvolvimento da coordenação global.'
   },
-  // BLOCO 5: Saídas, Viragens e Mergulhos
   {
     id: '41',
     title: 'O Escorrega do Golfinho',
@@ -543,7 +841,7 @@ export const ALL_ACTIVITIES: Activity[] = [
     durationMin: 12,
     materials: ['Bloco de partida'],
     description: 'Foco na posição "Aos seus lugares": dedos agarrados à borda, quadril alto. Ao sinal (apito), o aluno dispara para um mergulho longo e raso.',
-    tip: 'Se o aluno fizer muito barulho (splash), a entrada não foi eficiente.'
+    tip: 'Si o aluno fizer muito barulho (splash), a entrada não foi eficiente.'
   },
   {
     id: '50',
@@ -556,7 +854,6 @@ export const ALL_ACTIVITIES: Activity[] = [
     description: 'O aluno nada 5 metros de crawl e, sem parar, roda o corpo para ficar de costas e continua a nadar. Depois, faz o inverso.',
     tip: 'Fundamental para nadores que estão a começar a aprender Medley.'
   },
-  // BLOCO 6: Condicionamento e Lúdico
   {
     id: '51',
     title: 'O Motor do Barquinho',
@@ -775,7 +1072,7 @@ export const ALL_ACTIVITIES: Activity[] = [
     durationMin: 10,
     materials: ['Nenhum'],
     description: 'Começa com um pegador. Quando pega alguém, dão as mãos e viram uma rede. A rede vai crescendo até pegar todos.',
-    tip: 'Se a rede ficar muito grande, divida em duas.'
+    tip: 'Si a rede ficar muito grande, divida em duas.'
   },
   {
     id: '71',
@@ -895,28 +1192,16 @@ export const getRandomActivity = (
   level: LessonLevel,
   excludeIds: string[] = []
 ): Activity | null => {
-  // Relaxed filtering to ensure we find activities even if exact match is scarce
   const candidates = ALL_ACTIVITIES.filter(
     (act) => {
-      // Must match type
       if (act.type !== type) return false;
-      // Must not be excluded
       if (excludeIds.includes(act.id)) return false;
-      
-      // Flexible age matching (if act includes the age)
       const ageMatch = act.age.includes(age);
-      
-      // Flexible level matching
       const levelMatch = act.level.includes(level);
-      
       return ageMatch && levelMatch;
     }
   );
 
-  // If no exact match, try matching just type and level (ignoring age strictly if needed, or vice versa)
-  // For this app, let's keep it strict first, but if empty, we might return something close in a real app.
-  // Returning random for now.
-  
   if (candidates.length === 0) return null;
   return candidates[Math.floor(Math.random() * candidates.length)];
 };
